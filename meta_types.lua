@@ -797,6 +797,12 @@
 
 ---@class CameraTrackFlags
 
+---@alias CameraType
+---| "neutral"
+---| "scripted"
+---| "thirdPerson"
+---| "firstPerson"
+
 ---@alias CollisionResultType
 ---| "object"
 ---| "structure"
@@ -6878,6 +6884,7 @@
 ---@field alphaAsExponentMask boolean
 
 ---@class ShaderModelFlags
+---@field multipurposeMapUsesOgXboxChannelOrder boolean
 ---@field disableTwoSidedCulling boolean
 ---@field trueAtmosphericFog boolean
 ---@field alphaBlendedDecal boolean

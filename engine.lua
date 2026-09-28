@@ -425,6 +425,11 @@ function Engine.camera.setZoom(zoom, localPlayerIndex) end
 ---@return number
 function Engine.camera.getZoom(localPlayerIndex) end
 
+-- Get the camera type: first or third person, scripted (cinematics) or neutral (dead, debug).
+---@param localPlayerIndex? integer @default 0
+---@return CameraType
+function Engine.camera.getCurrentCameraType(localPlayerIndex) end
+
 
 -------------------------------------------------------
 -- Engine.input

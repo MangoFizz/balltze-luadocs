@@ -118,7 +118,7 @@ function Balltze.loadSettings() end
 ---@overload fun(eventName: "object_damage", callbackFunction: fun(event: ObjectDamageEvent), priority?: EventListenerPriority): EventListener
 function Balltze.addEventListener(eventName, callbackFunction, priority) end
 
--- Remove every listener subscribed to a named event (across all plugins, not just the caller)
+-- Remove every listener the calling plugin subscribed to a named event
 ---@param eventName string
 function Balltze.removeEventListeners(eventName) end
 
@@ -344,6 +344,18 @@ function Balltze.memory.readInt32(address) end
 function Balltze.memory.readInt64(address) end
 
 ---@param address integer
+---@return integer
+function Balltze.memory.readUInt8(address) end
+
+---@param address integer
+---@return integer
+function Balltze.memory.readUInt16(address) end
+
+---@param address integer
+---@return integer
+function Balltze.memory.readUInt32(address) end
+
+---@param address integer
 ---@param value integer
 function Balltze.memory.writeInt8(address, value) end
 
@@ -358,6 +370,18 @@ function Balltze.memory.writeInt32(address, value) end
 ---@param address integer
 ---@param value integer
 function Balltze.memory.writeInt64(address, value) end
+
+---@param address integer
+---@param value integer
+function Balltze.memory.writeUInt8(address, value) end
+
+---@param address integer
+---@param value integer
+function Balltze.memory.writeUInt16(address, value) end
+
+---@param address integer
+---@param value integer
+function Balltze.memory.writeUInt32(address, value) end
 
 ---@param address integer
 ---@return number
