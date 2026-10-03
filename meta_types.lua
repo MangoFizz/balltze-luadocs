@@ -1618,7 +1618,7 @@
 ---@field center Point3d
 ---@field boundingRadius number
 ---@field scale number
----@field objectType integer
+---@field objectType ObjectType
 ---@field teamOwner integer
 ---@field nameListIndex integer
 ---@field movingTime integer
@@ -3725,6 +3725,7 @@
 ---@field scenarioTagDirectoryPath string
 
 ---@class NetworkPlayer
+---@field name string
 ---@field colorIndex integer
 ---@field iconIndex integer
 ---@field machineIndex integer
@@ -4319,6 +4320,7 @@
 ---@class Player
 ---@field playerId integer
 ---@field localPlayerIndex integer
+---@field name string
 ---@field squadIndex integer
 ---@field teamIndex integer
 ---@field interactionObjectHandle ObjectHandle
@@ -8196,6 +8198,7 @@
 ---| "aButton"
 
 ---@class UiWidgetDefinitionFlags
+---@field dontExpand640WidthBounds boolean
 ---@field forceHandleMouse boolean
 ---@field donTPushHistory boolean
 ---@field alwaysUseNiftyRenderFx boolean

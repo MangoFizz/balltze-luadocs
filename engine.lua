@@ -44,6 +44,10 @@ function Engine.game.getGameConnectionType() end
 ---@return boolean|nil @nil if no game variant is active (e.g. not in multiplayer)
 function Engine.game.isTeamGame() end
 
+-- Whether this process is the dedicated server, which has no local player, rendering or frame events.
+---@return boolean
+function Engine.game.isDedicatedServer() end
+
 
 -------------------------------------------------------
 -- Engine.script
@@ -230,6 +234,11 @@ function Engine.object.getObjectType(handle) end
 ---@return integer|nil maxCount @capacity of the object table
 function Engine.object.getObjectCount() end
 
+-- Get the handles of every live object of a type; empty when no map is loaded
+---@param objectType ObjectType
+---@return ObjectHandle[]
+function Engine.object.filterObjects(objectType) end
+
 -- Spawn an object
 ---@param tagHandle TagHandle|integer
 ---@param parentObjectHandle? ObjectHandle|integer
@@ -252,6 +261,13 @@ function Engine.object.getObjectPosition(objectHandle) end
 ---@param forward? Vector3d|{i: number, j: number, k: number} @if omitted, keeps the current rotation
 ---@param up? Vector3d|{i: number, j: number, k: number} @if omitted, derived from the forward vector
 function Engine.object.setObjectPosition(objectHandle, position, forward, up) end
+
+-- Put a unit in a vehicle seat; on a network host a player's unit goes through the player action so clients see it
+---@param unitObjectHandle ObjectHandle|integer
+---@param vehicleObjectHandle ObjectHandle|integer
+---@param seat integer|string @seat index (from 1) or seat label
+---@return boolean @true if the unit got in
+function Engine.object.unitEnterVehicle(unitObjectHandle, vehicleObjectHandle, seat) end
 
 -- Attach an object to another object's marker
 ---@param objectHandle ObjectHandle|integer

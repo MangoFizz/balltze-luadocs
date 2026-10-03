@@ -200,8 +200,9 @@ Balltze.network = {}
 -- only machine that can address anyone. Channels are named rather than tied to a plugin, so a
 -- server plugin and a client plugin agree on a name rather than on an identity.
 --
--- Payloads are binary strings of at most 508 bytes and are not fragmented, so anything longer
+-- Payloads are binary strings of at most 476 bytes and are not fragmented, so anything longer
 -- has to be split by the sender. Payloads from a client are untrusted; validate them.
+-- A machine without Balltze is disconnected by these messages; only send to players that spoke first.
 
 -- Listen for messages on a channel. senderPlayerIndex is nil when the server sent the message.
 ---@param channel string
@@ -218,7 +219,7 @@ function Balltze.network.send(channel, payload) end
 ---@param playerIndex integer
 ---@param channel string
 ---@param payload string
----@return boolean sent @false when not running as the server
+---@return boolean sent @false when not running as the server or the player does not exist
 function Balltze.network.sendToPlayer(playerIndex, channel, payload) end
 
 -- Send a payload to every machine. Server side.
@@ -255,6 +256,7 @@ function Balltze.filesystem.directoryExists(path) end
 ---@param path string
 ---@param data string
 ---@param append? boolean @default: false (truncate/overwrite)
+---@return boolean @whether the file was written
 function Balltze.filesystem.writeFile(path, data, append) end
 
 ---@param path string
