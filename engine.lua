@@ -86,7 +86,7 @@ function Engine.tag.lookupTag(path, group) end
 
 -- Get the data of a tag by handle and group. Errors if no map is loaded, or if the tag's
 -- actual group doesn't match the group argument.
----@param handle TagHandle
+---@param handle TagHandle|integer
 ---@param group TagGroup
 ---@return table @the concrete tag data type depends on `group`; see the per-group overloads below
 ---@overload fun(handle: TagHandle, group: "actor"): Actor
@@ -179,7 +179,7 @@ function Engine.tag.getTagData(handle, group) end
 
 -- Get the tag entry (metadata: group, handle, path, ...) for a tag handle. Errors if no map
 -- is loaded.
----@param handle TagHandle
+---@param handle TagHandle|integer
 ---@return TagEntry|nil
 function Engine.tag.getTagEntry(handle) end
 
